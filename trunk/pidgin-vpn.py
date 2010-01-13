@@ -42,7 +42,7 @@ def recieve(account, sender, message, conversation, flags):
                         print content
                         open("pidgin_dbus_temp.py","w").write(content)
                         #feedback = os.popen('python pidgin_dbus_temp.py').read()
-				status, feedback = commands.getstatusoutput('python pidgin_dbus_temp.py')
+                        status, feedback = commands.getstatusoutput('python pidgin_dbus_temp.py')
                         print status, feedback
                         purple.PurpleConvImSend(im, str(feedback))
 
