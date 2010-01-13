@@ -4,7 +4,7 @@
 #Author: newdongyuwei@gmail.com
 #Version:0.1
 
-import os, dbus, gobject
+import commands, dbus, gobject
 from dbus.mainloop.glib import DBusGMainLoop
 
 #trusted_buddies should not hurt your computer
@@ -41,8 +41,9 @@ def recieve(account, sender, message, conversation, flags):
                         content = content.replace("&apos;","'").replace("&quot;",'"')
                         print content
                         open("pidgin_dbus_temp.py","w").write(content)
-                        feedback = os.popen('python pidgin_dbus_temp.py').read()
-                        print feedback
+                        #feedback = os.popen('python pidgin_dbus_temp.py').read()
+				status, feedback = commands.getstatusoutput('python pidgin_dbus_temp.py')
+                        print status, feedback
                         purple.PurpleConvImSend(im, str(feedback))
 
 DBusGMainLoop(set_as_default=True)
