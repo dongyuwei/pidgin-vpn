@@ -8,7 +8,7 @@ import commands, dbus, gobject
 from dbus.mainloop.glib import DBusGMainLoop
 
 #trusted_buddies should not hurt your computer
-trusted_buddy_list = ["newdongyuwei@gmail.com","newdongyuwei@hotmail.com","154136125"]
+trusted_buddy_list = ["newdongyuwei@gmail.com"]
 
 def recieve(account, sender, message, conversation, flags):
         print str(sender)
